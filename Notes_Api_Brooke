@@ -2,27 +2,27 @@ ______Get_______________________________________________________________________
 
 -- Produit ---------------------- 
 
-- Get All Product	ok
-- Get Product By Id	ok
+- Get All Product (root cree)
+- Get Product By Id (root cree)
 
 
 
 -- Livres ---------------------- 
 
-- Get All Livres	ok	
-- Get Livre By Id 	ok
+- Get All Livres	(root cree)
+- Get Livre By Id 	(root cree)
 
 
 -- Films ---------------------- 
 
-- Get All Films		ok
-- Get Films By Id 	ok
+- Get All Films		(root cree)
+- Get Films By Id 	(root cree)
 
 
 -- Jeux ---------------------- 
 
-- Get All Jeux		ok
-- Get Jeu By Id 	ok
+- Get All Jeux		(root cree)
+- Get Jeu By Id 	(root cree)
 
 
 -- Clients ----------------------
@@ -37,7 +37,7 @@ ______Get_______________________________________________________________________
 
 -- Commandes ----------------------
 
-- Get All Commandes	ok
+- Get All Commandes	(root cree)
 - Get Commande By Id	AF
 
 
@@ -72,17 +72,17 @@ ______Post______________________________________________________________________
 
 -- Livres ---------------------- ?
 
-- Post Create Livre	ok
+- Post Create Livre	(root cree)
 
 
 -- Films ---------------------- ?
 
-- Post Create Film	ok
+- Post Create Film	(root cree)
 
 
 -- Jeux ---------------------- ?
 
-- Post Create Jeux	ok
+- Post Create Jeux	(root cree)
 
 
 -- Clients ----------------------
