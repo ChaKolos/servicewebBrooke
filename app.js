@@ -219,7 +219,7 @@ app.get('/fournisseurs/:numero', (req, res) => {
   });
 
   //  ajouter un produit de type Livre
-  app.post('/addFivre', (req, res) => {
+  app.post('/addLivre', (req, res) => {
     const { idProduit, isbn, dateParution, editeur, auteurs } = req.body;
     const query = 'INSERT INTO Livres (idProduit, isbn, dateParution, editeur, auteurs) VALUES (?, ?, ?, ?, ?)';
     db.query(query, [idProduit, isbn, dateParution, editeur, auteurs], (error) => {
@@ -300,8 +300,7 @@ app.get('/fournisseurs/:numero', (req, res) => {
 /////////////////// Put //////////////////////////////////////////////////////////////////
 
   // Mise à Jour de Profil
-
-  app.put('/update-profil/:id', (req, res) => {
+  app.put('/updateProfil/:id', (req, res) => {
     const { id } = req.params;
     const { nom, prenom, courriel, telephone, adresse, photo } = req.body;
   
@@ -312,39 +311,59 @@ app.get('/fournisseurs/:numero', (req, res) => {
     });
   });
   
-    // Réinitialisation de Mot de Passe
-
-    app.put('/reset-password/:id', (req, res) => {
-        const { id } = req.params;
-        const { newPassword } = req.body; // Assurez-vous de hacher le mot de passe
-      
-        const query = 'UPDATE Client SET password = ? WHERE id = ?';
-        db.query(query, [newPassword, id], (error) => {
-          if (error) res.status(500).send('Erreur lors de la réinitialisation du mot de passe');
-          else res.send('Mot de passe réinitialisé avec succès');
-        });
+  // Réinitialisation de Mot de Passe
+  app.put('/resetPassword/:id', (req, res) => {
+      const { id } = req.params;
+      const { newPassword } = req.body; // Assurez-vous de hacher le mot de passe
+    
+      const query = 'UPDATE Client SET password = ? WHERE id = ?';
+      db.query(query, [newPassword, id], (error) => {
+        if (error) res.status(500).send('Erreur lors de la réinitialisation du mot de passe');
+        else res.send('Mot de passe réinitialisé avec succès');
       });
+    });
       
 
-          // Mise à Jour des Produits
+  // Mise à Jour des Produits
+  app.put('/updateProduit/:id', (req, res) => {
+    const { id } = req.params;
+    const { titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat } = req.body;
+  
+    const query = 'UPDATE Produits SET titre = ?, prix = ?, description = ?, image = ?, quantiteEnStock = ?, quantiteMinStock = ?, etat = ? WHERE id = ?';
+    db.query(query, [titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat, id], (error) => {
+      if (error) res.status(500).send('Erreur lors de la mise à jour du produit');
+      else res.send('Produit mis à jour avec succès');
+    });
+  });
 
-          app.put('/update-produit/:id', (req, res) => {
-            const { id } = req.params;
-            const { titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat } = req.body;
-          
-            const query = 'UPDATE Produits SET titre = ?, prix = ?, description = ?, image = ?, quantiteEnStock = ?, quantiteMinStock = ?, etat = ? WHERE id = ?';
-            db.query(query, [titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat, id], (error) => {
-              if (error) res.status(500).send('Erreur lors de la mise à jour du produit');
-              else res.send('Produit mis à jour avec succès');
-            });
-          });
+  // Mise à Jour etat commande
+  app.put('/updateCommande/:numero', (req, res) => {
+    const { numero } = req.params;
+    const { date, idClient, etat } = req.body;
+  
+    const query = 'UPDATE Commande SET date = ?, idClient = ?, etat = ? WHERE numero = ?';
+    db.query(query, [date, idClient, etat, numero], (error) => {
+      if (error) res.status(500).send('Erreur lors de la mise à jour de la commande');
+      else res.send('Commande mise à jour avec succès');
+    });
+  });
+  
 
 
 
 /////////////////// Delete //////////////////////////////////////////////////////////////////
   
 
-  
+  // Delete produits par id
+app.delete('/deleteProduit/:id', (req, res) => {
+  const { id } = req.params;
+
+  const query = 'DELETE FROM Produits WHERE id = ?';
+  db.query(query, [id], (error) => {
+    if (error) res.status(500).send('Erreur lors de la suppression du produit');
+    else res.send('Produit supprimé avec succès');
+  });
+});
 
 
   
