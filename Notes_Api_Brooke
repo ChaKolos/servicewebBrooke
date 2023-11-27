@@ -1,0 +1,227 @@
+______Get__________________________________________________________________________________
+
+-- Produit ---------------------- ?
+
+- Get All Product	ok
+- Get Product By Id	ok
+
+
+
+-- Livres ---------------------- ?
+
+- Get All Livres	ok	
+- Get Livre By Id 	ok
+
+
+-- Films ---------------------- ?
+
+- Get All Films		ok
+- Get Films By Id 	ok
+
+
+-- Jeux ---------------------- ?
+
+- Get All Jeux		ok
+- Get Jeu By Id 	ok
+
+
+-- Clients ----------------------
+
+- Get All Clients	AF
+- Get Client By Id	AF
+
+
+-- Employe ----------------------
+
+- Get Employe By Id	 AF
+
+-- Commandes ----------------------
+
+- Get All Commandes	ok
+- Get Commande By Id	AF
+
+
+-- Livraisons ---------------------- ???
+
+- Get All Livraisons	?
+- Get Livraison By Id	?
+
+
+-- Approvisionnements ---------------------- ???
+
+- Get All Approvisionnements 	?
+- Get Approvisionnement By Id	?
+
+
+-- Fournisseurs ----------------------
+
+- Get All Fournisseurs		AF
+- Get Fournisseur By Id 	?  (Besoin?)
+
+
+
+
+______Post__________________________________________________________________________________
+
+
+
+-- Produit ---------------------- ?
+
+- Post Create Product	AF
+
+
+-- Livres ---------------------- ?
+
+- Post Create Livre	ok
+
+
+-- Films ---------------------- ?
+
+- Post Create Film	ok
+
+
+-- Jeux ---------------------- ?
+
+- Post Create Jeux	ok
+
+
+-- Clients ----------------------
+
+- Post Create Client	AF
+
+
+-- Employe ---------------------- ??? 
+
+- Post Create Employe					
+( Pas besoin Je crois de créer des nouveau employé)
+
+-- Commandes ----------------------
+
+- Post Create Commande		AF
+
+
+-- Livraisons ---------------------- ???
+
+- Post Create Livraison
+(Est-ce qu'on garde des traces des livraisons? Peut-être pour ajouter dans la fiche commande?)
+
+
+-- Approvisionnements ---------------------- ???
+
+- Post Create Approvisionnement  
+(Est-ce qu'on garde des traces des approvisionnement sinon c'est des Put ajout de Produit)
+
+
+-- Fournisseurs ---------------------- ???
+
+ - Pas besoin Je crois de créer des nouveau fournisseurs
+
+
+
+
+______Put__________________________________________________________________________________
+
+
+-- Produit ---------------------- ?
+
+- Put Update Product (Ajouter à la quantité)	?OK?
+
+
+-- Livres ---------------------- ?
+
+- Put Update Livre (Ajouter à la quantité)	?
+
+
+-- Films ---------------------- ?
+
+- Put Update Film (Ajouter à la quantité)	?
+
+
+-- Jeux ---------------------- ?
+
+- Put Update Jeux (Ajouter à la quantité)	?
+
+
+-- Clients ----------------------
+
+- Put Update Client By ID (Modifier Profil)	OK
+
+
+-- Employe ---------------------- ??? 
+
+- Put Update Employe
+( Pas besoin Je crois de modifier les employés)
+
+
+-- Commandes ----------------------
+
+- Put Update Commande (changer l'état de la commande, payé ou non)	AF
+
+
+-- Livraisons ---------------------- ???
+
+- Put Update Livraison
+(Je ne pense pas qu'on modifie les livraisons)
+
+
+-- Approvisionnements ---------------------- ???
+
+- Put Update Approvisionnement  
+(Je ne pense pas qu'on modifie les Approvisionnement)
+
+
+-- Fournisseurs ---------------------- ???
+
+ - Pas besoin Je crois de créer des nouveau fournisseurs
+(Je ne pense pas qu'on modifie les Fournisseurs)
+
+
+
+
+______Delete__________________________________________________________________________________
+
+
+
+-- Produit ---------------------- ???
+
+- Je ne pense pas que ça soit nécessaire
+
+
+-- Livres ---------------------- ???
+
+- Je ne pense pas que ça soit nécessaire
+
+-- Films ---------------------- ???
+
+- Je ne pense pas que ça soit nécessaire
+
+-- Jeux ---------------------- ???
+
+- Je ne pense pas que ça soit nécessaire
+
+-- Clients --------------------- ???
+
+- Je ne pense pas que ça soit nécessaire
+
+-- Employe ---------------------- ??? 
+
+- Je ne pense pas que ça soit nécessaire
+
+
+-- Commandes ---------------------- ???
+
+- Je ne pense pas que ça soit nécessaire
+
+-- Livraisons ---------------------- ???
+
+- Je ne pense pas que ça soit nécessaire
+
+
+-- Approvisionnements ---------------------- ???
+
+- Je ne pense pas que ça soit nécessaire
+
+
+-- Fournisseurs ---------------------- ???
+
+- Je ne pense pas que ça soit nécessaire
