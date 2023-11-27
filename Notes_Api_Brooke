@@ -9,13 +9,13 @@ ______Get_______________________________________________________________________
 
 -- Livres ---------------------- 
 
-- Get All Livres	(root cree)
+- Get All Livres	(root cree) (Tester)
 - Get Livre By Id 	(root cree) (oui pour produit/ID: livre mais pas pour livres/ID: livre)
 
 
 -- Films ---------------------- 
 
-- Get All Films		(root cree)
+- Get All Films		(root cree) (Tester)
 - Get Films By Id 	(root cree)
 
 
