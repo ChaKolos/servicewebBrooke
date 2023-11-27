@@ -2,19 +2,214 @@ const express = require('express');
 const app = express();
 const db = require('./database');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+/////////////////// Get //////////////////////////////////////////////////////////////////
+
+
+  // Liste tous les produits
+  app.get('/Produits', (req, res) => {
+    db.query('SELECT * FROM Produits', (error, results) => {
+      if (error) throw error;
+      res.json(results);
+    });
+  });
+  
+
+  // Détails d'un produit par son ID
+  app.get('/produit/:id', (req, res) => {
+    const { id } = req.params;
+    
+    let table;
+    if (id.startsWith('LIV')) {
+      table = 'Livres';
+    } else if (id.startsWith('FIL')) {
+      table = 'Films';
+    } else if (id.startsWith('JEU')) {
+      table = 'Jeux';
+    } else {
+      res.status(400).send('ID de produit non valide');
+      return;
+    }
+  
+    const query = `SELECT * FROM ${table} WHERE idProduit = ?`;
+    db.query(query, [id], (error, results) => {
+      if (error) res.status(500).send('Erreur lors de la récupération du produit');
+      else res.json(results);
+    });
+  });
+  
+
+//  Liste des livres
+  app.get('/livres', (req, res) => {
+    db.query('SELECT * FROM Livres', (error, results) => {
+      if (error) res.status(500).send('Erreur lors de la récupération des livres');
+      else res.json(results);
+    });
+  });
+
+
+// Liste Livres par idProduit
+app.get('/livres/:idProduit', (req, res) => {
+    const livreIdProduit = req.params.idProduit;
+
+    db.query('SELECT * FROM Livres WHERE idProduit = ?', [livreIdProduit], (err, results) => {
+      if (err) throw err;
+      if (results.length > 0) {
+        res.json(results[0]);
+      } else {
+        res.status(404).json({ message: 'Book not found' });
+      }
+    });
+  });
+  
+  
+
+//  Liste des films
+  app.get('/films', (req, res) => {
+    db.query('SELECT * FROM Films', (error, results) => {
+      if (error) res.status(500).send('Erreur lors de la récupération des films');
+      else res.json(results);
+    });
+  });
+
+
+// Liste films par idProduit
+app.get('/films/:idProduit', (req, res) => {
+    const filmIdProduit = req.params.idProduit;
+    db.query('SELECT * FROM Films WHERE idProduit = ?', [filmIdProduit], (err, results) => {
+      if (err) throw err;
+      if (results.length > 0) {
+        res.json(results[0]);
+      } else {
+        res.status(404).json({ message: 'Film not found' });
+      }
+    });
+  });
+  
+  
+
+//  Liste des jeux
+  app.get('/jeux', (req, res) => {
+    db.query('SELECT * FROM Jeux', (error, results) => {
+      if (error) res.status(500).send('Erreur lors de la récupération des jeux');
+      else res.json(results);
+    });
+  });
+
+
+// Liste jeux par idProduit
+app.get('/jeux/:idProduit', (req, res) => {
+    const jeuxIdProduit = req.params.idProduit;
+    db.query('SELECT * FROM Jeux WHERE idProduit = ?', [jeuxIdProduit], (err, results) => {
+      if (err) throw err;
+      if (results.length > 0) {
+        res.json(results[0]);
+      } else {
+        res.status(404).json({ message: 'Game not found' });
+      }
+    });
+  });
+  
+
+// Liste de tout les Commandes
+  app.get('/suivi-commandes', (req, res) => {
+    db.query('SELECT * FROM Commande', (error, results) => {
+      if (error) {
+        res.status(500).send('Erreur lors de la récupération des commandes');
+      } else {
+        res.json(results);
+      }
+    });
+  });
+
+
+// Commande par numero
+app.get('/commandes/:numero', (req, res) => {
+    const numeroCommande = req.params.numero;
+
+    db.query('SELECT * FROM Commande WHERE numero = ?', [numeroCommande], (err, results) => {
+      if (err) throw err;
+      if (results.length > 0) {
+        res.json(results[0]);
+      } else {
+        res.status(404).json({ message: 'Commande non trouvé' });
+      }
+    });
+  });
+
+
+  // Liste Clients par ID
+app.get('/clients/:id', (req, res) => {
+    const clientId = req.params.id;
+
+    db.query('SELECT * FROM Client WHERE id = ?', [clientId], (err, results) => {
+      if (err) throw err;
+      if (results.length > 0) {
+        res.json(results[0]);
+      } else {
+        res.status(404).json({ message: 'Client non trouvé' });
+      }
+    });
+  });
+
+
+  // Liste Tout les Clients
+app.get('/clients', (req, res) => {
+    db.query('SELECT * FROM Client', (err, results) => {
+      if (err) throw err;
+      res.json(results);
+    });
+  });
+  
+  
+  // Employe par Matricules
+app.get('/employes/:matricule', (req, res) => {
+    const employeeMatricule = req.params.matricule;
+    db.query('SELECT * FROM Employe WHERE matricule = ?', [employeeMatricule], (err, results) => {
+      if (err) throw err;
+      if (results.length > 0) {
+        res.json(results[0]);
+      } else {
+        res.status(404).json({ message: 'Employee not found' });
+      }
+    });
+  });
+  
+
+  // Fournisseurs par numero
+app.get('/fournisseurs/:numero', (req, res) => {
+    const fournisseursNumero = req.params.numero;
+    db.query('SELECT * FROM Fournisseurs WHERE numero = ?', [fournisseursNumero], (err, results) => {
+      if (err) throw err;
+      if (results.length > 0) {
+        res.json(results[0]);
+      } else {
+        res.status(404).json({ message: 'Supplier not found' });
+      }
+    });
+  });
+
+
+  // Liste de tout les fournisseurs
+  app.get('/fournisseurs', (req, res) => {
+    db.query('SELECT * FROM Fournisseurs', (err, results) => {
+      if (err) throw err;
+      res.json(results);
+    });
+  });
+
 
   
+/////////////////// Post //////////////////////////////////////////////////////////////////
+
+
   //  ajouter un produit de type Livre
-app.post('/add-livre', (req, res) => {
+  app.post('/add-livre', (req, res) => {
     const { idProduit, isbn, dateParution, editeur, auteurs } = req.body;
     const query = 'INSERT INTO Livres (idProduit, isbn, dateParution, editeur, auteurs) VALUES (?, ?, ?, ?, ?)';
     db.query(query, [idProduit, isbn, dateParution, editeur, auteurs], (error) => {
@@ -44,77 +239,9 @@ app.post('/add-livre', (req, res) => {
       else res.status(201).send('Jeu ajouté avec succès');
     });
   });
-  
 
-  // Liste tous les produits
-app.get('/Produits', (req, res) => {
-    db.query('SELECT * FROM Produits', (error, results) => {
-      if (error) throw error;
-      res.json(results);
-    });
-  });
-  
-  // Détails d'un produit par son ID
-  app.get('/produit/:id', (req, res) => {
-    const { id } = req.params;
-    
-    let table;
-    if (id.startsWith('LIV')) {
-      table = 'Livres';
-    } else if (id.startsWith('FIL')) {
-      table = 'Films';
-    } else if (id.startsWith('JEU')) {
-      table = 'Jeux';
-    } else {
-      res.status(400).send('ID de produit non valide');
-      return;
-    }
-  
-    const query = `SELECT * FROM ${table} WHERE idProduit = ?`;
-    db.query(query, [id], (error, results) => {
-      if (error) res.status(500).send('Erreur lors de la récupération du produit');
-      else res.json(results);
-    });
-  });
-  
-//  Listez un produit de type Livres
-  app.get('/livres', (req, res) => {
-    db.query('SELECT * FROM Livres', (error, results) => {
-      if (error) res.status(500).send('Erreur lors de la récupération des livres');
-      else res.json(results);
-    });
-  });
-  
-//  Listez un produit de type Films
-  app.get('/films', (req, res) => {
-    db.query('SELECT * FROM Films', (error, results) => {
-      if (error) res.status(500).send('Erreur lors de la récupération des films');
-      else res.json(results);
-    });
-  });
-  
-//  Listez un produit de type Jeux
-  app.get('/jeux', (req, res) => {
-    db.query('SELECT * FROM Jeux', (error, results) => {
-      if (error) res.status(500).send('Erreur lors de la récupération des jeux');
-      else res.json(results);
-    });
-  });
-  
 
-// suivi des commandes 
-  app.get('/suivi-commandes', (req, res) => {
-    // Supposons une table Commande avec des informations sur les commandes
-    db.query('SELECT * FROM Commande', (error, results) => {
-      if (error) {
-        res.status(500).send('Erreur lors de la récupération des commandes');
-      } else {
-        res.json(results);
-      }
-    });
-  });
-  
-
+/////////////////// Put //////////////////////////////////////////////////////////////////
 
   // Mise à Jour de Profil
 
@@ -155,8 +282,17 @@ app.get('/Produits', (req, res) => {
               else res.send('Produit mis à jour avec succès');
             });
           });
+
+
+
+/////////////////// Delete //////////////////////////////////////////////////////////////////
+  
+
+  
+
+
+  
+
+
+
           
-
-
-
-       
