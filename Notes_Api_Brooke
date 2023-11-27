@@ -10,7 +10,7 @@ ______Get_______________________________________________________________________
 -- Livres ---------------------- 
 
 - Get All Livres	(root cree)
-- Get Livre By Id 	(root cree)
+- Get Livre By Id 	(root cree) (oui pour produit/ID: livre mais pas pour livres/ID: livre)
 
 
 -- Films ---------------------- 
