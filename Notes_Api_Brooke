@@ -124,7 +124,7 @@ ______Put_______________________________________________________________________
 
 -- Produit ---------------------- ?
 
-- Put Update Product (Ajouter à la quantité)	?OK?
+- Put Update Product (Ajouter à la quantité)	    (root cree)
 
 
 -- Livres ---------------------- ?
@@ -144,7 +144,7 @@ ______Put_______________________________________________________________________
 
 -- Clients ----------------------
 
-- Put Update Client By ID (Modifier Profil)	OK
+- Put Update Client By ID (Modifier Profil)	     (root cree)
 
 
 -- Employe ---------------------- ??? 
@@ -155,7 +155,7 @@ ______Put_______________________________________________________________________
 
 -- Commandes ----------------------
 
-- Put Update Commande (changer l'état de la commande, payé ou non)	AF
+- Put Update Commande (changer l'état de la commande, payé ou non)	  (root cree)
 
 
 -- Livraisons ---------------------- ???
@@ -184,7 +184,7 @@ ______Delete____________________________________________________________________
 
 -- Produit ---------------------- ???
 
-- Je ne pense pas que ça soit nécessaire
+- Je ne pense pas que ça soit nécessaire    (root cree)
 
 
 -- Livres ---------------------- ???
