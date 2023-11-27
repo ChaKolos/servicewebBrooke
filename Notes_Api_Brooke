@@ -1,25 +1,25 @@
 ______Get__________________________________________________________________________________
 
--- Produit ---------------------- ?
+-- Produit ---------------------- 
 
 - Get All Product	ok
 - Get Product By Id	ok
 
 
 
--- Livres ---------------------- ?
+-- Livres ---------------------- 
 
 - Get All Livres	ok	
 - Get Livre By Id 	ok
 
 
--- Films ---------------------- ?
+-- Films ---------------------- 
 
 - Get All Films		ok
 - Get Films By Id 	ok
 
 
--- Jeux ---------------------- ?
+-- Jeux ---------------------- 
 
 - Get All Jeux		ok
 - Get Jeu By Id 	ok
