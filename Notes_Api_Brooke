@@ -16,13 +16,13 @@ ______Get_______________________________________________________________________
 -- Films ---------------------- 
 
 - Get All Films		(root cree) (Tester)
-- Get Films By Id 	(root cree)
+- Get Films By Id 	(root cree) (oui pour produit/ID: film mais pas pour films/ID: films)
 
 
 -- Jeux ---------------------- 
 
-- Get All Jeux		(root cree)
-- Get Jeu By Id 	(root cree)
+- Get All Jeux		(root cree) (Tester)
+- Get Jeu By Id 	(root cree) (oui pour produit/ID: jeux mais pas pour jeux/ID: jeux)
 
 
 -- Clients ----------------------
