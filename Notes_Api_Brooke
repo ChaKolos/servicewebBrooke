@@ -27,13 +27,13 @@ ______Get_______________________________________________________________________
 
 -- Clients ----------------------
 
-- Get All Clients	AF
-- Get Client By Id	AF
+- Get All Clients	(root cree)
+- Get Client By Id	(root cree)
 
 
 -- Employe ----------------------
 
-- Get Employe By Id	 AF
+- Get Employe By Id	 (root cree)
 
 -- Commandes ----------------------
 
