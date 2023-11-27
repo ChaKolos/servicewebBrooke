@@ -210,13 +210,12 @@ app.get('/fournisseurs/:numero', (req, res) => {
   //  ajouter un produit
   app.post('/add_produit', (req, res) => {
     const { id, titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat} = req.body;
-    const query = 'INSERT INTO Produits (id, titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO Produits values(id, titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(query, [id, titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat], (error) => {
       if (error) res.status(500).send('Erreur lors de l\'ajout du produit');
       else res.status(201).send('Produit ajouté avec succès');
     });
   });
-
 
   //  ajouter un produit de type Livre
   app.post('/add-livre', (req, res) => {
@@ -249,6 +248,18 @@ app.get('/fournisseurs/:numero', (req, res) => {
       else res.status(201).send('Jeu ajouté avec succès');
     });
   });
+
+
+  //  ajouter un mouveau client
+  app.post('/add_client', (req, res) => {
+    const { id, nom, prenom, courriel, telephone, adresse, photo, password } = req.body;
+    const query = 'INSERT INTO Client (id, nom, prenom, courriel, telephone, adresse, photo, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    db.query(query, [id, nom, prenom, courriel, telephone, adresse, photo, password], (error) => {
+      if (error) res.status(500).send('Erreur lors de l\'ajout du client');
+      else res.status(201).send('Client ajouté avec succès');
+    });
+  });
+  
 
 
 /////////////////// Put //////////////////////////////////////////////////////////////////
