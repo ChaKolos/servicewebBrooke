@@ -10,19 +10,19 @@ ______Get_______________________________________________________________________
 -- Livres ---------------------- 
 
 - Get All Livres	(root cree) (Tester)
-- Get Livre By Id 	(root cree) (oui pour produit/ID: livre mais pas pour livres/ID: livre)
+- Get Livre By Id 	(root cree) (Tester)
 
 
 -- Films ---------------------- 
 
 - Get All Films		(root cree) (Tester)
-- Get Films By Id 	(root cree) (oui pour produit/ID: film mais pas pour films/ID: films)
+- Get Films By Id 	(root cree) (Tester)
 
 
 -- Jeux ---------------------- 
 
 - Get All Jeux		(root cree) (Tester)
-- Get Jeu By Id 	(root cree) (oui pour produit/ID: jeux mais pas pour jeux/ID: jeux)
+- Get Jeu By Id 	(root cree) (Tester)
 
 
 -- Clients ----------------------
