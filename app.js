@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const db = require('./database');
 
+app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
@@ -208,57 +209,91 @@ app.get('/fournisseurs/:numero', (req, res) => {
 /////////////////// Post //////////////////////////////////////////////////////////////////
 
   //  ajouter un produit
-  app.post('/add_produit', (req, res) => {
+  app.post('/addProduit', (req, res) => {
     const { id, titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat} = req.body;
-    const query = 'INSERT INTO Produits values(id, titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO Produits (id, titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(query, [id, titre, prix, description, image, quantiteEnStock, quantiteMinStock, etat], (error) => {
-      if (error) res.status(500).send('Erreur lors de l\'ajout du produit');
+      if (error) res.status(500).send("Erreur lors de l'ajout du Produit");
       else res.status(201).send('Produit ajouté avec succès');
     });
   });
 
   //  ajouter un produit de type Livre
-  app.post('/add-livre', (req, res) => {
+  app.post('/addFivre', (req, res) => {
     const { idProduit, isbn, dateParution, editeur, auteurs } = req.body;
     const query = 'INSERT INTO Livres (idProduit, isbn, dateParution, editeur, auteurs) VALUES (?, ?, ?, ?, ?)';
     db.query(query, [idProduit, isbn, dateParution, editeur, auteurs], (error) => {
-      if (error) res.status(500).send('Erreur lors de l\'ajout du livre');
+      if (error) res.status(500).send("Erreur lors de l'ajout du Livre");
       else res.status(201).send('Livre ajouté avec succès');
     });
   });
   
     //  ajouter un produit de type Film
-  app.post('/add-film', (req, res) => {
+  app.post('/addFilm', (req, res) => {
     const { idProduit, acteurs, realisateur, format, videoExtrait } = req.body;
     const queryFilm = 'INSERT INTO Films (idProduit, acteurs, realisateur, format, videoExtrait) VALUES (?, ?, ?, ?, ?)';
     
     db.query(queryFilm, [idProduit, acteurs, realisateur, format, videoExtrait], (error) => {
-      if (error) res.status(500).send('Erreur lors de l\'ajout du film');
+      if (error) res.status(500).send("Erreur lors de l'ajout du Film");
       else res.status(201).send('Film ajouté avec succès');
     });
   });
   
     //  ajouter un produit de type Jeux
-  app.post('/add-jeu', (req, res) => {
+  app.post('/addJeu', (req, res) => {
     const { idProduit, auteurs, collection } = req.body;
     const queryJeu = 'INSERT INTO Jeux (idProduit, auteurs, collection) VALUES (?, ?, ?)';
     
     db.query(queryJeu, [idProduit, auteurs, collection], (error) => {
-      if (error) res.status(500).send('Erreur lors de l\'ajout du jeu');
+      if (error) res.status(500).send("Erreur lors de l'ajout du Jeu");
       else res.status(201).send('Jeu ajouté avec succès');
     });
   });
 
 
-  //  ajouter un mouveau client
-  app.post('/add_client', (req, res) => {
+  //  ajouter un nouveau client
+  app.post('/addClient', (req, res) => {
     const { id, nom, prenom, courriel, telephone, adresse, photo, password } = req.body;
     const query = 'INSERT INTO Client (id, nom, prenom, courriel, telephone, adresse, photo, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(query, [id, nom, prenom, courriel, telephone, adresse, photo, password], (error) => {
-      if (error) res.status(500).send('Erreur lors de l\'ajout du client');
+      if (error) res.status(500).send("Erreur lors de l'ajout du Client");
       else res.status(201).send('Client ajouté avec succès');
     });
   });
+
+  // Ajouter une nouvelle commande
+  app.post('/addCommande', (req, res) => {
+    const { numero, date, idClient, etat } = req.body;
+    const query = 'INSERT INTO Commande (numero, date, idClient, etat) VALUES (?, ?, ?, ?)';
+    db.query(query, [numero, date, idClient, etat], (error) => {
+      if (error) res.status(500).send("Erreur lors de l'ajout du Commande");
+      else res.status(201).send('Commande ajoutée avec succès');
+    });
+  });
+
+  // Ajouter une nouveau employe
+  app.post('/addEmploye', (req, res) => {
+    const { matricule, nom, prenom, courriel, password } = req.body;
+    const query = 'INSERT INTO Employe (matricule, nom, prenom, courriel, password) VALUES (?, ?, ?, ?, ?)';
+    db.query(query, [matricule, nom, prenom, courriel, password], (error) => {
+      if (error) res.status(500).send("Erreur lors de l'ajout du Employé");
+      else res.status(201).send('Employé ajouté avec succès');
+    });
+  });
+  
+
+    // Ajouter une nouveau fournisseur
+    app.post('/addFournisseur', (req, res) => {
+      const { numero, entreprise, adresse } = req.body;
+      const query = 'INSERT INTO Fournisseurs (numero, entreprise, adresse) VALUES (?, ?, ?)';
+      db.query(query, [numero, entreprise, adresse], (error) => {
+        if (error) res.status(500).send("Erreur lors de l'ajout du Fournisseur");
+        else res.status(201).send('Fournisseur ajouté avec succès');
+      });
+    });
+    
+
+  
   
 
 
