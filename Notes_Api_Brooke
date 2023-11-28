@@ -38,7 +38,7 @@ ______Get_______________________________________________________________________
 -- Commandes ----------------------
 
 - Get All Commandes	(root cree) (Tester)
-- Get Commande By Id	(root cree)
+- Get Commande By Id	(root cree)(Tester)
 
 
 -- Livraisons ---------------------- ???
@@ -97,7 +97,7 @@ ______Post______________________________________________________________________
 
 -- Commandes ----------------------
 
-- Post Create Commande		(root cree)
+- Post Create Commande		(root cree)(Tester)
 
 
 -- Livraisons ---------------------- ???
