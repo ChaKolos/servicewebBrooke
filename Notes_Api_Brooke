@@ -27,8 +27,8 @@ ______Get_______________________________________________________________________
 
 -- Clients ----------------------
 
-- Get All Clients	(root cree) (Tester) (Tester)
-- Get Client By Id	(root cree) (Tester Local)
+- Get All Clients	(root cree) (Tester)
+- Get Client By Id	(root cree) (Tester)
 
 
 -- Employe ----------------------
