@@ -144,7 +144,7 @@ ______Put_______________________________________________________________________
 
 -- Clients ----------------------
 
-- Put Update Client By ID (Modifier Profil)	     (root cree)(Tester)
+- Put Update Client By ID (Modifier Profil)	     (root cree) (Tester)
 
 
 -- Employe ---------------------- ??? 
@@ -155,7 +155,7 @@ ______Put_______________________________________________________________________
 
 -- Commandes ----------------------
 
-- Put Update Commande (changer l'état de la commande, payé ou non)	  (root cree)
+- Put Update Commande (changer l'état de la commande, payé ou non)	  (root cree) (Tester)
 
 
 -- Livraisons ---------------------- ???
