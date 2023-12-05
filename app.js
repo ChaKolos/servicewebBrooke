@@ -118,7 +118,7 @@ app.get('/jeux/:idProduit', (req, res) => {
   
 
 // Liste de tout les Commandes
-  app.get('/suivi-commandes', (req, res) => {
+  app.get('/suiviCommandes', (req, res) => {
     db.query('SELECT * FROM Commande', (error, results) => {
       if (error) {
         res.status(500).send('Erreur lors de la récupération des commandes');
@@ -167,6 +167,13 @@ app.get('/clients', (req, res) => {
     });
   });
   
+    // Liste Tout les Clients
+app.get('/clients', (req, res) => {
+  db.query('SELECT * FROM Client', (err, results) => {
+    if (err) throw err;
+    res.json(results);
+  });
+});
   
   // Employe par Matricules
 app.get('/employes/:matricule', (req, res) => {
@@ -205,7 +212,7 @@ app.get('/fournisseurs/:numero', (req, res) => {
   });
 
 
-  
+
 /////////////////// Post //////////////////////////////////////////////////////////////////
 
   //  ajouter un produit
@@ -255,6 +262,7 @@ app.get('/fournisseurs/:numero', (req, res) => {
   app.post('/addClient', (req, res) => {
     const { id, nom, prenom, courriel, telephone, adresse, photo, password } = req.body;
     const query = 'INSERT INTO Client (id, nom, prenom, courriel, telephone, adresse, photo, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+
     db.query(query, [id, nom, prenom, courriel, telephone, adresse, photo, password], (error) => {
       if (error) res.status(500).send("Erreur lors de l'ajout du Client");
       else res.status(201).send('Client ajouté avec succès');
@@ -266,7 +274,7 @@ app.get('/fournisseurs/:numero', (req, res) => {
     const { numero, date, idClient, etat } = req.body;
     const query = 'INSERT INTO Commande (numero, date, idClient, etat) VALUES (?, ?, ?, ?)';
     db.query(query, [numero, date, idClient, etat], (error) => {
-      if (error) res.status(500).send("Erreur lors de l'ajout du Commande");
+      if (error) res.status(500).send("Erreur lors de l'ajout de la Commande");
       else res.status(201).send('Commande ajoutée avec succès');
     });
   });
@@ -292,10 +300,6 @@ app.get('/fournisseurs/:numero', (req, res) => {
       });
     });
     
-
-  
-  
-
 
 /////////////////// Put //////////////////////////////////////////////////////////////////
 
@@ -348,8 +352,6 @@ app.get('/fournisseurs/:numero', (req, res) => {
     });
   });
   
-
-
 
 /////////////////// Delete //////////////////////////////////////////////////////////////////
   
